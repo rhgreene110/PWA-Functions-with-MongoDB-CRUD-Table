@@ -1,0 +1,57 @@
+doctype html
+html
+ 
+head
+    style.
+        table {
+            font-family: sans-serif;
+            font-size:15px;
+            color:#333333;
+            border: 1px solid black;
+            border-color: #666666;
+            border-collapse: collapse;
+        }
+        th {
+            border: 1px solid black;
+            padding: 10px;
+            background-color: #dedede;
+        }
+        td {
+            border: 1px solid black;
+            padding: 10px;
+            background-color: #ffffff;
+        }
+ 
+body
+    h1 MongoDB Data using Jade engine. Manage all the data here
+   
+    div
+        form(method='POST' action='/users')
+            label name
+            input(type="text", name="name", value="")
+            br
+            label message
+            input(type="text", name="message", value="")
+            br
+            input(type="submit", value="add")
+            br
+            br
+            //- input(type="reset" value="reset")
+    div
+        table.table.table-hover
+            thead
+                tr
+                    th _id
+                    th name
+                    th message
+                    th last update
+                    th operations
+            tbody
+                each data in usersData
+                    tr
+                        td=data._id
+                        td=data.name
+                        td=data.message
+                        td=data.updatedAt
+                        td
+                            a.btn.btn-danger.btn-sm.margin-left(href='/users/delete/'+data._id) delete
