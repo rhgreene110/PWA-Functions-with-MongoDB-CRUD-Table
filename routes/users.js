@@ -1,5 +1,4 @@
-﻿                               
-var express = require('express');
+﻿var express = require('express');
 var router = express.Router();
  
 const userServices  = require('../config/users-services');
@@ -11,8 +10,8 @@ router.get('/', userServices.findAll);
  
 router.get('/:Id', userServices.findOne);
  
-router.put('/edit/:Id', userServices.update);
+router.post('/edit/:Id', userServices.update);
  
-router.get('/delete/:Id', userServices.delete);
+router.post('/delete/:Id', userServices.delete);
  
 module.exports = router;
