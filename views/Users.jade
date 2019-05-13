@@ -45,17 +45,20 @@ body
                                             option(value='New York') New York
                                             option(value='Arizona') Arizona
                                             option(value='Georgia') Georgia
+                                .form-group
+                                    label.col-form-label Telephone number:
+                                        input.form-controlinput(type='text', name='telephone_number', placeholder='')
+                                        //-   update the label on model form and send data to server  RHG note
                         .modal-footer
-                            button.btn.btn-secondary(type='button', data-dismiss='modal') Cancle
+                            button.btn.btn-secondary(type='button', data-dismiss='modal') Cancel
                             button.btn.btn-primary(type='button', onclick="document.getElementById('add-record').submit();") Submit
-                           
+
     .container-fluid
         div
             br
             table.table.table-striped
                 thead
                     tr
-                        th ID
                         th First_name
                         th Middle_initial
                         th Last_name
@@ -68,10 +71,11 @@ body
                         th Payment_card
                         th UpdatedAt
                         th Operations
+                        th telephone_number            
+                        //- third action, update field above telephone number    RHG note
                 tbody
                     each data in usersData
                         tr
-                            td #{data._id}
                             td #{data.first_name}
                             td #{data.middle_initial}
                             td #{data.last_name}
@@ -83,8 +87,10 @@ body
                             td #{data.driver_license_state}
                             td #{data.payment_card}
                             td #{data.updatedAt}
+                            td #{data.telephone_number}        
+                            //- forth action - update colunm telephone_number     RHG note
                             td
-                                button.btn.btn-warning(type='button', data-toggle='modal', data-target="#modal#{data._id}", value='#{data._id}')
+                                button.btn.btn-warning.btn-lg(type='button', data-toggle='modal', data-target="#modal#{data._id}", value='#{data._id}')
                                     | Edit
                                 .modal.fade(tabindex='-1', role='dialog', aria-labelledby='editModalLabel', aria-hidden='true', id="modal#{data._id}")
                                     .modal-dialog
@@ -115,8 +121,8 @@ body
                                                                 option(value='Arizona') Arizona
                                                                 option(value='Georgia') Georgia
                                             .modal-footer
-                                                button.btn.btn-secondary(type='button', data-dismiss='modal') Cancle
+                                                button.btn.btn-secondary(type='button', data-dismiss='modal') Cancel
                                                 button.btn.btn-primary(type='button', onclick="document.getElementById('edit-record#{data._id}').submit()") Submit
                                 form(action="/users/delete/#{data._id}", method="POST")
-                                    button.btn.btn-danger(type="submit") Delete
+                                    button.btn.btn-danger.btn-sm(type="submit") Delete
 

@@ -10,6 +10,7 @@ exports.create = (req, res) => {
         payment_card: req.body.payment_card || 'N/A',
         country_name: req.body.country_name || 'N/A',
         day_of_birth: req.body.day_of_birth || '',
+        telephone_number: req.body.telephone_number || ' ',         // add this second to create the record - RHG note 
     });
  
     hero.save()
