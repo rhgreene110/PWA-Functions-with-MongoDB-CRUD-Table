@@ -9,7 +9,7 @@ head
  
 body
     .container-fluid
-        h1 Express - MongoDB Data - Jade engine - bootstrap 4
+        h1 Javascript - Express - MongoDB Data - Jade engine - bootstrap 4
         h2 Manage all the data here
         div
             button.btn.btn-success(type='button', data-toggle='modal', data-target='#addModal')
@@ -90,7 +90,7 @@ body
                             td #{data.telephone_number}        
                             //- forth action - update colunm telephone_number     RHG note
                             td
-                                button.btn.btn-warning.btn-lg(type='button', data-toggle='modal', data-target="#modal#{data._id}", value='#{data._id}')
+                                button.btn.btn-warning.btn-sm(type='button', data-toggle='modal', data-target="#modal#{data._id}", value='#{data._id}')
                                     | Edit
                                 .modal.fade(tabindex='-1', role='dialog', aria-labelledby='editModalLabel', aria-hidden='true', id="modal#{data._id}")
                                     .modal-dialog
