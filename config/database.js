@@ -36,6 +36,9 @@ const heroSchema = new Schema({
     payment_card_id_number: String,
     payment_card_expiration_date: Date,
     telephone_number: String,      // add field first - RHG note
+    username: String,
+    password: String,
+    email: String,
 },
 { timestamps: true }
 );

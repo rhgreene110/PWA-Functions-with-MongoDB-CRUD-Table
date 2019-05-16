@@ -10,7 +10,10 @@ exports.create = (req, res) => {
         payment_card: req.body.payment_card || 'N/A',
         country_name: req.body.country_name || 'N/A',
         day_of_birth: req.body.day_of_birth || '',
-        telephone_number: req.body.telephone_number || ' ',         // add this second to create the record - RHG note 
+       
+        username: req.body.username || 'Undefined',
+        password: req.body.password || '',
+        email: req.body.email || 'Undefined',
     });
  
     hero.save()
@@ -62,6 +65,9 @@ exports.update = (req, res) => {
         payment_card: req.body.payment_card || 'N/A',
         country_name: req.body.country_name || 'N/A',
         day_of_birth: req.body.day_of_birth || '',
+        username: req.body.username || 'Undefined',
+        password: req.body.password || '',
+        email: req.body.email || 'Undefined',
     }, {new: true})
     .then(data => {
         if(!data){
@@ -95,4 +101,30 @@ exports.delete = (req, res) => {
         }
         return res.status(500).send('error deleting record with Id' + req.params.Id)
     });
+};
+exports.userregister = (req, res) => {
+ 
+    const hero = new Hero({
+        first_name: req.body.first_name || 'Unknown name',
+        middle_initial: req.body.middle_initial || 'N/A',
+        last_name: req.body.last_name || 'N/A',
+        street_address: req.body.street_address || 'N/A',
+        city_name: req.body.city_name || 'N/A',
+        payment_card: req.body.payment_card || 'N/A',
+        country_name: req.body.country_name || 'N/A',
+        day_of_birth: req.body.day_of_birth || '',
+       
+        username: req.body.username || 'Undefined',
+        password: req.body.password || '',
+        email: req.body.email || 'Undefined',
+    });
+ 
+    hero.save()
+        .then(data=>{
+            // console.log(data);
+            res.redirect('/');
+        })
+        .catch(err =>{
+            res.status(500).send("failed to register"+err);
+        })
 };
