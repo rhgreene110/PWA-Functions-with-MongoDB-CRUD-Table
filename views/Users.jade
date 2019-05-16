@@ -152,7 +152,8 @@ body
                                                         label.col-sm-2.col-form-label country:
                                                         .col-sm-10
                                                             select.custom-select.mr-sm-2(name='country_name', value='#{data.country_name}')
-                                                                option(selected='Alabama') Alabama
+                                                                option(value='') #{data.country_name}
+                                                                option(value='Alabama') Alabama
                                                                 option(value='California') California
                                                                 option(value='Texas') Texas
                                                                 option(value='New York') New York
