@@ -14,9 +14,14 @@ var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
  
 db.once('open', (callback) => {
-    console.log('MongoDB connectted！！');
+    console.log('MongoDB connected！！');         
 });
- 
+ // create heroActivity schema
+ // This is created to provide an array structure to log each time a user logs into the system. 
+ //
+ // const heroActivityLogSchema = new Schema({
+ //    loginDateTime : String
+ // });
  
 //create schema
 const heroSchema = new Schema({
@@ -39,8 +44,9 @@ const heroSchema = new Schema({
     username: String,
     password: String,
     email: String,
+//  heroActivitylog : [heroActivityLogSchema],          // this date/time comes from the login form every time the user logs into the system.    
 },
-{ timestamps: true }
+{ timestamps: true }                             // this date/time comes from the registration form.
 );
 
 //create model

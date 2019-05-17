@@ -10,6 +10,7 @@ exports.create = (req, res) => {
         payment_card: req.body.payment_card || 'N/A',
         country_name: req.body.country_name || 'N/A',
         day_of_birth: req.body.day_of_birth || '',
+        state_name: req.body.state_name || '',
        
         username: req.body.username || 'Undefined',
         password: req.body.password || '',
@@ -65,6 +66,7 @@ exports.update = (req, res) => {
         payment_card: req.body.payment_card || 'N/A',
         country_name: req.body.country_name || 'N/A',
         day_of_birth: req.body.day_of_birth || '',
+        state_name: req.body.state_name || '',
         username: req.body.username || 'Undefined',
         password: req.body.password || '',
         email: req.body.email || 'Undefined',
@@ -113,7 +115,7 @@ exports.userregister = (req, res) => {
         payment_card: req.body.payment_card || 'N/A',
         country_name: req.body.country_name || 'N/A',
         day_of_birth: req.body.day_of_birth || '',
-       
+        state_name: req.body.state_name || '',       
         username: req.body.username || 'Undefined',
         password: req.body.password || '',
         email: req.body.email || 'Undefined',
